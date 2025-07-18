@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:redbits/models/messages_model.dart';
+import 'package:chat_app/models/messages_model.dart';
 
 class ChatBuble extends StatelessWidget {
   const ChatBuble({super.key, required this.message});

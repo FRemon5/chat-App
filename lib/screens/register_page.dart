@@ -1,12 +1,12 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:redbits/helpers/snack_bar.dart';
-import 'package:redbits/models/arguments_model.dart';
-import 'package:redbits/screens/chat_page.dart';
-import 'package:redbits/screens/login_page.dart';
-import 'package:redbits/widgets/custom_button.dart';
-import 'package:redbits/widgets/custom_text_field.dart';
+import 'package:chat_app/helpers/snack_bar.dart';
+import 'package:chat_app/models/arguments_model.dart';
+import 'package:chat_app/screens/chat_page.dart';
+import 'package:chat_app/screens/login_page.dart';
+import 'package:chat_app/widgets/custom_button.dart';
+import 'package:chat_app/widgets/custom_text_field.dart';
 
 // ignore: must_be_immutable
 class RegisterPage extends StatefulWidget {
@@ -64,6 +64,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     },
                   ),
                   CustomButton(
+                    color: Color(0xff0040E1),
                     onTap: () async {
                       if (formKey.currentState!.validate()) {
                         isLoading = true;
@@ -91,7 +92,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     },
                     height: 60,
                     width: double.infinity,
-                    title: 'Sign Up',
+                    title: 'Login',
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

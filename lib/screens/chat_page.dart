@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:redbits/consts/constants.dart';
-import 'package:redbits/helpers/chat_buble.dart';
-import 'package:redbits/models/arguments_model.dart';
-import 'package:redbits/models/messages_model.dart';
+import 'package:chat_app/consts/constants.dart';
+import 'package:chat_app/helpers/chat_buble.dart';
+import 'package:chat_app/models/arguments_model.dart';
+import 'package:chat_app/models/messages_model.dart';
 
 // ignore: must_be_immutable
 

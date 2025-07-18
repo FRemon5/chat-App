@@ -1,9 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:redbits/firebase_options.dart';
-import 'package:redbits/screens/chat_page.dart';
-import 'package:redbits/screens/login_page.dart';
-import 'package:redbits/screens/register_page.dart';
+import 'package:chat_app/firebase_options.dart';
+import 'package:chat_app/screens/chat_page.dart';
+import 'package:chat_app/screens/login_page.dart';
+import 'package:chat_app/screens/register_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,12 +1,12 @@
+import 'package:chat_app/screens/register_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud_nsn/modal_progress_hud_nsn.dart';
-import 'package:redbits/helpers/snack_bar.dart';
-import 'package:redbits/models/arguments_model.dart';
-import 'package:redbits/screens/chat_page.dart';
-import 'package:redbits/screens/register_page.dart';
-import 'package:redbits/widgets/custom_button.dart';
-import 'package:redbits/widgets/custom_text_field.dart';
+import 'package:chat_app/helpers/snack_bar.dart';
+import 'package:chat_app/models/arguments_model.dart';
+import 'package:chat_app/screens/chat_page.dart';
+import 'package:chat_app/widgets/custom_button.dart';
+import 'package:chat_app/widgets/custom_text_field.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -59,13 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     SizedBox(height: 50),
-                    
-                    CustomTextField(
-                      labelText: 'Username',
-                      value: (data) {
-                        name = data;
-                      },
-                    ),
+
                     CustomTextField(
                       labelText: 'Email Address',
                       value: (data) {
@@ -111,29 +105,13 @@ class _LoginPageState extends State<LoginPage> {
                       },
                     ),
                     CustomButton(
-                      color: Colors.yellow,
+                      color: Color(0xff0040E1),
                       height: 60,
                       width: double.infinity,
                       title: 'Create Account',
-                      onTap: () {},
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'don\'t have an account? ',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pushNamed(context, RegisterPage.id);
-                          },
-                          child: Text(
-                            'Sign Up',
-                            style: TextStyle(color: Colors.blue),
-                          ),
-                        ),
-                      ],
+                      onTap: () {
+                        Navigator.pushNamed(context, RegisterPage.id);
+                      },
                     ),
                   ],
                 ),
