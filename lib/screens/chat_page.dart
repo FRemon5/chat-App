@@ -36,102 +36,115 @@ class ChatPage extends StatelessWidget {
               .toList();
 
           return Scaffold(
-            backgroundColor: Color(0xFFE0E0E0),
             appBar: AppBar(
+              backgroundColor: Color(0xff00081C),
               automaticallyImplyLeading: false,
-              centerTitle: false,
-              title: Text('Chat'),
-              backgroundColor: Colors.white,
+              title: Image.asset('assets/images/rawa.png', height: 90),
+              centerTitle: true,
             ),
-            body: Column(
-              children: [
-                Expanded(
-                  child: ListView.builder(
-                    reverse: true,
-                    controller: _controller,
-                    itemCount: messagesList.length,
-                    itemBuilder: (context, index) {
-                      final message = messagesList[index];
-                      if (message.id == args.email) {
-                        return ChatBuble(message: message);
-                      } else {
-                        return ChatBubleOfFriend(message: message);
-                      }
-                    },
-                  ),
+            body: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [
+                    Color(0xff00081C),
+                    Color(0xff00174F),
+                    Color(0xff002582),
+                    Color(0xff0040E1),
+                  ],
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 8,
-                    vertical: 6,
-                  ),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(32),
-                      color: Colors.white,
-                    ),
-
-                    child: TextField(
-                    
-                      controller: controller,
-                      onSubmitted: (data) async {
-                        if (data.trim().isEmpty) return;
-
-                        await messages.add({
-                          'message': data.trim(),
-                          'createdAt':
-                              FieldValue.serverTimestamp(), // ✅ التوقيت من السيرفر
-                          'id': args.email,
-                          'name': args.name,
-                        });
-                    
-                        controller.clear();
-                        _controller.animateTo(
-                          0,
-                          duration: Duration(milliseconds: 300),
-                          curve: Curves.easeOut,
-                        );
+              ),
+              child: Column(
+                children: [
+                  
+                  Divider(thickness: 3),
+                  Expanded(
+                    child: ListView.builder(
+                      reverse: true,
+                      controller: _controller,
+                      itemCount: messagesList.length,
+                      itemBuilder: (context, index) {
+                        final message = messagesList[index];
+                        if (message.id == args.email) {
+                          return ChatBuble(message: message);
+                        } else {
+                          return ChatBubleOfFriend(message: message);
+                        }
                       },
-                      decoration: InputDecoration(
-                        
-                        hint: Text(
-                          'Send a message...',
-                          style: TextStyle(color: Colors.grey),
-                        ),
-                        suffixIcon: IconButton(
-                          onPressed: () async {
-                            if (controller.text.trim().isEmpty) return;
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 8,
+                      vertical: 6,
+                    ),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(16),
+                        color: Color.fromRGBO(200, 200, 200, 0.2),
+                      ),
 
-                            await messages.add({
-                              'message': controller.text.trim(),
-                              'createdAt':
-                                  FieldValue.serverTimestamp(), // ✅ التوقيت من السيرفر
-                              'id': args.email,
-                              'name': args.name,
-                            });
-                            controller.clear();
-                            _controller.animateTo(
-                              0,
-                              duration: Duration(milliseconds: 300),
-                              curve: Curves.easeOut,
-                            );
-                          },
-                          icon: Icon(Icons.send),
-                          color: Colors.black,
-                        ),
-                        border: OutlineInputBorder(
-                          
-                          borderRadius: BorderRadius.circular(32),
-                        ),
-                        enabledBorder: OutlineInputBorder(
-                          // borderSide: BorderSide(color: Colors.red),
-                          borderRadius: BorderRadius.circular(32),
+                      child: TextField(
+                        controller: controller,
+                        onSubmitted: (data) async {
+                          if (data.trim().isEmpty) return;
+
+                          await messages.add({
+                            'message': data.trim(),
+                            'createdAt':
+                                FieldValue.serverTimestamp(), // ✅ التوقيت من السيرفر
+                            'id': args.email,
+                            'name': args.name,
+                          });
+
+                          controller.clear();
+                          _controller.animateTo(
+                            0,
+                            duration: Duration(milliseconds: 300),
+                            curve: Curves.easeOut,
+                          );
+                        },
+                        decoration: InputDecoration(
+                          hint: Text(
+                            'Send a message...',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                          suffixIcon: IconButton(
+                            onPressed: () async {
+                              if (controller.text.trim().isEmpty) return;
+
+                              await messages.add({
+                                'message': controller.text.trim(),
+                                'createdAt':
+                                    FieldValue.serverTimestamp(), // ✅ التوقيت من السيرفر
+                                'id': args.email,
+                                'name': args.name,
+                              });
+                              controller.clear();
+                              _controller.animateTo(
+                                0,
+                                duration: Duration(milliseconds: 300),
+                                curve: Curves.easeOut,
+                              );
+                            },
+                            icon: Icon(Icons.send),
+                            color: Colors.black,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(16),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            
+                            borderSide: BorderSide(color: Colors.transparent),
+                            borderRadius: BorderRadius.circular(16),
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           );
         } else if (snapshot.hasError) {

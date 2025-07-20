@@ -1,10 +1,10 @@
 class MessagesModel {
   final String message;
   final String id;
-  final String name;
-  MessagesModel(this.message, this.id, this.name);
+  
+  MessagesModel(this.message, this.id);
 
   factory MessagesModel.fromJson(json) {
-    return MessagesModel(json['message'], json['id'], json['name']);
+    return MessagesModel(json['message'], json['id']);
   }
 }

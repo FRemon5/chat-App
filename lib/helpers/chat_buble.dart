@@ -14,11 +14,12 @@ class ChatBuble extends StatelessWidget {
           margin: EdgeInsets.only(top: 5, bottom: 5),
           // padding: EdgeInsets.only(left: 20, top: 20, bottom: 20, right: 20),
           decoration: BoxDecoration(
-            color: Color(0xFFFAFAFA),
+            color: Color(0xff0040E1),
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(16),
               topRight: Radius.circular(16),
               bottomLeft: Radius.circular(16),
+              bottomRight: Radius.circular(16)
             ),
           ),
           child: Column(
@@ -34,7 +35,7 @@ class ChatBuble extends StatelessWidget {
                 ),
                 child: Text(
                   message.message,
-                  style: TextStyle(fontSize: 20, color: Colors.black),
+                  style: TextStyle(fontSize: 20, color: Colors.white),
                 ),
               ),
             ],
@@ -58,11 +59,12 @@ class ChatBubleOfFriend extends StatelessWidget {
           margin: EdgeInsets.only(top: 5, bottom: 5),
           // padding: EdgeInsets.only(left: 20, top: 20, bottom: 20, right: 20),
           decoration: BoxDecoration(
-            color: Colors.grey,
+            color: Color(0xff00081C),
             borderRadius: BorderRadius.only(
               topLeft: Radius.circular(16),
               topRight: Radius.circular(16),
               bottomRight: Radius.circular(16),
+              bottomLeft: Radius.circular(16)
             ),
           ),
           child: Column(
@@ -78,7 +80,7 @@ class ChatBubleOfFriend extends StatelessWidget {
                 ),
                 child: Text(
                   message.message,
-                  style: TextStyle(fontSize: 20, color: Colors.black),
+                  style: TextStyle(fontSize: 20, color: Colors.white),
                 ),
               ),
             ],
