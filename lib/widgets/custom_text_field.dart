@@ -17,7 +17,7 @@ class CustomTextField extends StatelessWidget {
       padding: const EdgeInsets.only(top: 10),
       child: Container(
         decoration: BoxDecoration(
-          color: Color.fromRGBO(200, 200, 200, 0.3),
+          color: Color.fromRGBO(200, 200, 200, 0.2),
           borderRadius: BorderRadius.circular(16),
         ),
         child: TextFormField(
@@ -33,8 +33,12 @@ class CustomTextField extends StatelessWidget {
               labelText,
               style: TextStyle(color: Colors.grey.shade400),
             ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.black),
+              borderRadius: BorderRadius.circular(16),
+            ),
             enabledBorder: OutlineInputBorder(
-              
+              borderSide: BorderSide(color: Colors.transparent),
               borderRadius: BorderRadius.circular(16),
             ),
             border: OutlineInputBorder(
